@@ -1,0 +1,1 @@
+exports.handler = async (event) => { const records = event.Records.map(record => { const data = Buffer.from(record.kinesis.data, "base64").toString(); return JSON.parse(data); }); console.log("Processed messages:", records); return { statusCode: 200 }; };

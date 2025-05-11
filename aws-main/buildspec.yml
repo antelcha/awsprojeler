@@ -1,0 +1,36 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+  pre_build:
+    commands:
+      - echo Installing client dependencies...
+      - cd client
+      - npm install
+      - cd ../server
+      - echo Installing server dependencies...
+      - npm install
+      - cd ..
+  build:
+    commands:
+      - echo Building client...
+      - cd client
+      - npm run build
+      - cd ../server
+      - echo Building server...
+      - npm run build
+      - cd ..
+  post_build:
+    commands:
+      - echo Build completed
+
+artifacts:
+  files:
+    - client/dist/**/*
+    - server/dist/**/*
+    - server/package.json
+    - server/package-lock.json
+    - buildspec.yml
+  discard-paths: no 
