@@ -1,0 +1,7 @@
+boto3==1.38.23
+AWSIoTPythonSDK==1.5.2
+paho-mqtt==2.1.0
+flask==3.0.0
+flask-socketio==5.3.6
+python-socketio==5.10.0
+python-engineio==4.7.1 
